@@ -31,7 +31,10 @@ describe('Scrape Gomex Website', () => {
               cy.get('p.ProductCard-module_nameLabel__SLKoV').each((productName, index) => {
                   cy.get('p.cpe20228DefaultPrice.ProductCard-module_price__jpIlV span').eq(index).then((priceElement) => {
                       const title = productName.text().trim();
-                      const price = priceElement.text().trim();
+                      let price = priceElement.text().trim();
+
+                      // Append "din" to the price
+                      price = `${price} din`;
 
                       // Store product data in the products array
                       products.push({ title, price });
