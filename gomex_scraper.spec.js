@@ -33,6 +33,9 @@ describe('Scrape Gomex Website', () => {
                       const title = productName.text().trim();
                       let price = priceElement.text().trim();
 
+                      // Remove "Redovna cena:" from the price
+                      price = price.replace("Redovna cena:", "").trim();
+                      
                       // Append "din" to the price
                       price = `${price} din`;
 
