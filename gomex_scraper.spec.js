@@ -29,7 +29,7 @@ describe('Scrape Gomex Website', () => {
 
               // Get product titles and prices
               cy.get('p.ProductCard-module_nameLabel__SLKoV').each((productName, index) => {
-                  cy.get('p.cpe20228DefaultPrice.ProductCard-module_price__jpIlV span').eq(index).then((priceElement) => {
+                  cy.get('p.cpe21497DefaultPrice').eq(index).then((priceElement) => {
                       const title = productName.text().trim();
                       let price = priceElement.text().trim();
 
